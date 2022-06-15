@@ -3,12 +3,12 @@
     "selected": 1
   },
   "1 error pnpm": {
-    "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
+    "code": "ERR_PNPM_NO_PKG_MANIFEST",
     "err": {
       "name": "pnpm",
-      "message": "No package.json (or package.yaml, or package.json5) was found in \"/home/andres/Documents/web/ignite/ignite-lab-01\".",
-      "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
-      "stack": "pnpm: No package.json (or package.yaml, or package.json5) was found in \"/home/andres/Documents/web/ignite/ignite-lab-01\".\n    at readProjectManifest (/snapshot/dist/pnpm.cjs)\n    at async Object.readProjectManifestOnly (/snapshot/dist/pnpm.cjs)\n    at async readProjectManifestOnly (/snapshot/dist/pnpm.cjs)\n    at async Object.handler (/snapshot/dist/pnpm.cjs)\n    at async /snapshot/dist/pnpm.cjs\n    at async run (/snapshot/dist/pnpm.cjs)\n    at async runPnpm (/snapshot/dist/pnpm.cjs)\n    at async /snapshot/dist/pnpm.cjs"
+      "message": "No package.json found in /home/andres/Documents/web/ignite/ignite-lab-01",
+      "code": "ERR_PNPM_NO_PKG_MANIFEST",
+      "stack": "pnpm: No package.json found in /home/andres/Documents/web/ignite/ignite-lab-01\n    at handler (/snapshot/dist/pnpm.cjs)\n    at async /snapshot/dist/pnpm.cjs\n    at async run (/snapshot/dist/pnpm.cjs)\n    at async runPnpm (/snapshot/dist/pnpm.cjs)\n    at async /snapshot/dist/pnpm.cjs"
     }
   }
 }
