@@ -6,6 +6,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { GqlExecutionContext } from '@nestjs/graphql';
 import { expressjwt as jwt, GetVerificationKey } from 'express-jwt';
 import { expressJwtSecret } from 'jwks-rsa';
 import { promisify } from 'node:util';
@@ -22,10 +23,7 @@ export class AuthorizationGuard implements CanActivate {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     // Vai de fato fazer a lógica para ver se o usuário tem autorização ou não
-    const httpContext = context.switchToHttp();
-
-    const req = httpContext.getRequest();
-    const res = httpContext.getResponse();
+    const { req, res } = GqlExecutionContext.create(context).getContext();
 
     const checkJWT = promisify(
       jwt({
