@@ -1,0 +1,14 @@
+// Esse é o arquivo onde vão ficar as tabelas do nosso banco.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Student {
+  id String @id @default(uuid())
+}
