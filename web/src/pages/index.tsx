@@ -1,17 +1,28 @@
-import { useUser } from '@auth0/nextjs-auth0';
-import type { NextPage } from 'next';
+import { getAccessToken, getSession, useUser } from '@auth0/nextjs-auth0';
+import type { GetServerSideProps, NextPage } from 'next';
 
 const Home: NextPage = () => {
-  const { user } = useUser();
-  console.log(user);
+  return null;
+};
 
-  return (
-    <div>
-      <h1>Hello World</h1>
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const session = getSession(req, res);
 
-      <a href="/api/auth/login">Login</a>
-    </div>
-  );
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/api/auth/login',
+        permanent: false,
+      },
+    };
+  } else {
+    return {
+      redirect: {
+        destination: '/app',
+        permanent: false,
+      },
+    };
+  }
 };
 
 export default Home;
