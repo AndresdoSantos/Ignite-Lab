@@ -1,12 +1,12 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
-
-import { AuthorizationGuard } from '../http/auth/authorization.guard';
+import { Controller, Get } from '@nestjs/common';
+import { PrismaService } from '../database/prisma/prisma.service';
 
 @Controller('test')
 export class TestController {
+  constructor(private prisma: PrismaService) {}
+
   @Get()
-  @UseGuards(AuthorizationGuard)
   hello() {
-    return 'ok';
+    return this.prisma.customer.findMany();
   }
 }
